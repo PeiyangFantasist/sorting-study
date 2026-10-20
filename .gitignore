@@ -1,0 +1,33 @@
+# Local packages and generated files
+/release/*
+!/release/.gitkeep
+/desktop/build/
+/desktop/deps/
+/desktop/test-data/
+/android/build/
+/android/assets/
+/android/toolchain/
+/android/signing/
+node_modules/
+__pycache__/
+*.pyc
+*.log
+*.zip
+*.nupkg
+*.apk
+*.exe
+
+# Credentials and machine-specific state
+.env
+.env.*
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.dpapi
+*.pem
+*.key
+local.properties
+.openai/
+.DS_Store
+Thumbs.db

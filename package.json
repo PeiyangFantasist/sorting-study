@@ -1,0 +1,12 @@
+{
+  "name": "sorting-study",
+  "version": "1.0.0",
+  "private": true,
+  "description": "八种排序算法的 C++ 可视化复习工具",
+  "scripts": {
+    "export:html": "node scripts/export-offline.cjs",
+    "test": "node tests/verify-all.cjs",
+    "test:css": "python scripts/verify-offline-css.py",
+    "test:android": "node android/tests/bridge.cjs"
+  }
+}

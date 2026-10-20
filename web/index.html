@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f4">
+  <meta name="description" content="八种经典排序算法的动画演示、逐行 C++ 代码和自测练习。">
+  <title>排序研习室 · C++ 交互复习</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%231d6755'/%3E%3Cpath d='M11 28V21M20 28V14M29 28V7' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#" aria-label="排序研习室首页"><span class="brand-icon"><i></i><i></i><i></i></span><span>排序研习室<small>C++ SORTING</small></span></a>
+  <div class="sidebar-heading">学习目录 <span>08 ALGORITHMS</span></div>
+  <nav id="algorithm-nav" aria-label="排序算法"></nav>
+  <div class="sidebar-bottom">
+    <div class="progress-copy"><span>我的复习进度</span><strong id="mastery-count">0 / 8</strong></div>
+    <div class="progress-track"><div id="mastery-fill"></div></div>
+    <button class="plan-button" id="plan-button"><span>◷</span> 60 分钟复习计划 <span>↗</span></button>
+    <p>进度保存在本机。</p>
+  </div>
+</aside>
+<main>
+  <header class="topbar"><div><button class="mobile-menu icon-button" id="mobile-menu" aria-label="展开学习目录">☰</button><span class="breadcrumb">数据结构 <span>/</span> 排序算法</span><span class="language-badge">C++ 17</span></div><button class="text-button" id="help-button">使用指南 <span>?</span></button></header>
+  <div class="workspace">
+    <div class="page-kicker"><span class="green-dot"></span> SORTING ALGORITHMS <span class="kicker-line"></span><span>排序过程与代码同步演示</span></div>
+    <div class="tabs" role="tablist" aria-label="复习模式"><button role="tab" aria-selected="true" data-view="lab">算法演示</button><button role="tab" aria-selected="false" data-view="compare">算法对照</button><button role="tab" aria-selected="false" data-view="quiz">自测练习 <span id="quiz-badge">16</span></button></div>
+    <section id="lab-view" class="view" role="tabpanel">
+      <div class="algorithm-heading"><div><div class="eyebrow" id="algorithm-eyebrow"></div><h1 id="algorithm-title"></h1><p id="algorithm-summary"></p></div><button class="mastery-button" id="mastery-button">○ 标记已掌握</button></div>
+      <div class="fact-strip" id="fact-strip"></div>
+      <div class="lab-grid">
+        <section class="card visualization-card" aria-label="排序过程可视化">
+          <div class="panel-heading"><div><span class="panel-icon">▥</span><h2>排序过程</h2></div><span class="small-label" id="phase-label">准备开始</span></div>
+          <div class="visual-topline"><div class="legend"><span><i class="legend-default"></i>待处理</span><span><i class="legend-compare"></i>比较</span><span><i class="legend-move"></i>写入 / 交换</span><span><i class="legend-sorted"></i>已就位</span></div><label class="tag-option"><input id="show-tags" type="checkbox" checked>原始序号</label></div>
+          <div id="special-visual" class="special-visual" hidden></div>
+          <div id="chart" class="chart" aria-label="当前数组"></div>
+          <div class="array-caption"><span>数组下标从 0 开始</span><span><i class="ordered-dot"></i> 浅绿表示局部有序</span></div>
+          <div id="variables" class="variables"></div>
+          <div class="step-explanation"><div><span id="step-number">01</span><strong id="step-title"></strong></div><p id="step-note" aria-live="polite"></p></div>
+          <div class="timeline"><input id="timeline" type="range" min="0" max="1" value="0" aria-label="跳转演示步骤"><div><span id="step-counter"></span><span id="timeline-status">拖动进度条跳转步骤</span></div></div>
+          <div class="playback"><div class="play-controls"><button id="reset-button" class="icon-button" title="回到开始 (Home)" aria-label="回到开始">↺</button><button id="prev-button" class="icon-button" title="上一步 (←)" aria-label="上一步">❮</button><button id="play-button" class="primary-button">▶ 播放演示</button><button id="next-button" class="icon-button" title="下一步 (→)" aria-label="下一步">❯</button><button id="end-button" class="icon-button" title="跳到结果 (End)" aria-label="跳到结果">⇥</button></div><label class="speed-control">速度 <select id="speed-select" aria-label="演示速度"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label></div>
+          <div class="counters"><div><strong id="comparisons-count">0</strong><span>关键字比较</span></div><div><strong id="writes-count">0</strong><span>数组写入</span></div><div><strong id="swaps-count">0</strong><span>交换次数</span></div><button class="text-button counter-help" id="counter-help" title="计数口径">ⓘ 计数说明</button></div>
+        </section>
+        <section class="card code-card" aria-label="同步高亮的 C++ 代码">
+          <div class="panel-heading"><div><span class="panel-icon code-icon">&lt;/&gt;</span><h2>C++ 实现</h2></div><div class="code-actions"><button class="text-button" id="copy-code">复制</button><button class="text-button" id="download-code" title="下载可编译的 C++ 文件">↓ .cpp</button></div></div>
+          <div class="code-toolbar"><span><i class="green-dot"></i>与演示步骤同步</span><label><input id="follow-code" type="checkbox" checked>自动跟随</label></div>
+          <div class="code-scroll" id="code-scroll"><div id="code-list" class="code-list"></div></div>
+          <div class="code-footer"><span id="code-location">执行位置</span><span>0-based · 升序</span></div>
+        </section>
+      </div>
+      <section class="card input-card"><div><h2>演示数据</h2><p>3～20 个非负整数，范围 0～999；重复值用原始序号区分。</p></div><div class="input-content"><div class="presets" id="presets"><button data-preset="random">随机数组</button><button data-preset="sorted">已经有序</button><button data-preset="reverse">完全逆序</button><button data-preset="duplicates">含重复值</button></div><form id="array-form"><label class="sr-only" for="array-input">自定义数组</label><input id="array-input" value="42, 17, 8, 33, 21, 17, 9, 28" autocomplete="off"><button type="submit" class="secondary-button">应用数据 ↵</button></form><p id="input-error" class="input-error" role="alert"></p></div></section>
+      <div class="study-grid"><section class="card lesson-card"><div class="section-label">01 / 算法思路</div><h2 id="mnemonic"></h2><p id="lesson-idea"></p><div class="invariant"><span>循环不变量</span><p id="lesson-invariant"></p></div><ol id="lesson-steps"></ol></section><section class="card lesson-card"><div class="section-label">02 / 代码细节</div><h2>易错点</h2><ul id="lesson-pitfalls" class="pitfall-list"></ul><div class="recall-box"><span>回忆题</span><strong id="recall-prompt"></strong><button class="text-button" id="recall-toggle">查看答案 ↓</button><p id="recall-answer" hidden></p></div></section></div>
+      <div class="lesson-tail"><span id="lesson-when"></span><button class="text-button" id="quiz-current">练习当前算法 →</button></div>
+    </section>
+    <section id="compare-view" class="view" role="tabpanel" hidden><div class="section-intro"><div class="eyebrow">ALGORITHM COMPARISON</div><h1>排序算法对照表</h1><p>时间复杂度、额外空间、稳定性与原地性。</p></div><div class="compare-callout"><strong>稳定性</strong><span>相等元素排序前后的相对次序不变。选择“含重复值”并保留原始序号，可观察它们的先后顺序。</span></div><div class="card compare-table-wrap"><table class="compare-table"><thead><tr><th>排序算法</th><th>最好时间</th><th>平均时间</th><th>最坏时间</th><th>额外空间</th><th>稳定</th><th>原地</th></tr></thead><tbody id="compare-body"></tbody></table></div><div id="compare-notes" class="compare-notes"></div><div class="card decision-card"><h2>适用情况</h2><div class="decision-grid"><div><span>接近有序、小规模</span><strong>直接插入排序</strong><p>移动少，自适应；折半插入减少比较，但不减少移动。</p></div><div><span>一般比较排序</span><strong>快速 / 堆 / 归并</strong><p>快速排序递归划分区间，堆排序反复取堆顶，归并排序合并有序段。</p></div><div><span>需要保留相等元素次序</span><strong>插入 / 冒泡 / 归并 / 基数</strong><p>本页的折半插入也稳定，关键是相等时往右找插入点。</p></div><div><span>关键字可以逐位处理</span><strong>基数排序</strong><p>按位分配再收集；本页演示非负整数的十进制 LSD。</p></div></div></div></section>
+    <section id="quiz-view" class="view" role="tabpanel" hidden><div class="section-intro"><div class="eyebrow">PRACTICE</div><h1>排序自测</h1><p>选择答案后显示解析。错题可回到对应算法查看演示。</p></div><div class="quiz-toolbar"><div><label for="quiz-filter">练习范围</label><select id="quiz-filter"><option value="all">全部算法</option></select></div><button id="quiz-reset" class="text-button">重新练习 ↺</button><span id="quiz-progress"></span></div><div id="quiz-content"></div></section>
+    <footer><span class="footer-brand">排序研习室</span><span>C++ 排序算法复习</span><span>8 种算法 · C++17 · 离线可用</span></footer>
+  </div>
+</main>
+<dialog id="info-dialog"><button class="dialog-close icon-button" aria-label="关闭对话框">×</button><div id="dialog-content"></div></dialog><div class="toast" id="toast" role="status"></div>
+<script src="trace.js"></script><script src="algorithms-basic.js"></script><script src="algorithms-advanced.js"></script><script src="lessons.js"></script><script src="app.js"></script>
+</body></html>

@@ -1,0 +1,45 @@
+排序研习室 · Windows 桌面版
+
+双击「SortingStudy.exe」即可打开，无需安装。建议把 EXE 放在你常用的文件夹。
+
+保留八种排序演示、逐行 C++ 高亮、自定义数据、16 道自测题和算法对照表。
+界面采用半透明导航、圆角控件与浅色内容区。支持 F11 全屏 / 退出全屏。
+复制按钮可复制 C++17 程序；「↓ .cpp」会打开系统保存窗口。
+
+掌握标记和答题记录保存在本机账户的 %LOCALAPPDATA%\SortingStudy\Profile。
+把 EXE 移到同一台电脑的其他文件夹，不会改变上述数据目录。
+原 HTML 在浏览器中保存的记录不会自动导入桌面版。
+
+适用于 Windows 10 / 11 的 64 位系统，使用 Microsoft Edge WebView2 和 .NET Framework 4.6.2 或更新版本。
+本机已验证可启动。网页资源已包含在 EXE 内，复习功能不需要联网。
+WebView2 组件说明：https://learn.microsoft.com/microsoft-edge/webview2/concepts/distribution
+
+第三方组件许可：Microsoft.Web.WebView2
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+   * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+   * The name of Microsoft Corporation, or the names of its contributors 
+may not be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
